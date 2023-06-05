@@ -1,0 +1,146 @@
+{
+  "allPizza": [
+    {
+      "id": "1",
+      "title": "Чизбургер-пицца",
+      "price": " 395 ",
+      "imageUrl": "/assets/images/chizburger.png",
+      "sostav": "krivetka",
+      "sizeNum": 1,
+      "size": ["тонкое", "традиционное"],
+      "pizzaId": 1,
+      "pizzaSize": ["20", "26", "36"],
+      "description": "some information",
+      "isOrdered": false
+    },
+    {
+      "id": "2",
+      "title": "Сырная",
+      "price": " 450 ",
+      "imageUrl": "/assets/images/sir.png",
+      "sostav": "sir",
+      "sizeNum": 1,
+      "size": ["тонкое", "традиционное"],
+      "pizzaId": 1,
+      "pizzaSize": ["20", "26", "36"],
+      "description": "some information",
+      "isOrdered": false
+    },
+    {
+      "id": "3",
+      "title": "Креветки по-азиатски",
+      "price": " 290 ",
+      "imageUrl": "/assets/images/krivetka.png",
+      "sostav": "sir",
+      "sizeNum": 1,
+      "size": ["тонкое", "традиционное"],
+      "pizzaId": 1,
+      "pizzaSize": ["20", "26", "36"],
+      "description": "some information",
+      "isOrdered": true
+    },
+    {
+      "id": "4",
+      "title": "Креветки по-азиатски",
+      "price": " 290 ",
+      "imageUrl": "/assets/images/sirniytsipa.png",
+      "sostav": "sir",
+      "sizeNum": 1,
+      "size": ["тонкое", "традиционное"],
+      "pizzaId": 1,
+      "pizzaSize": ["20", "26", "36"],
+      "description": "some information",
+      "isOrdered": false
+    },
+    {
+      "id": "5",
+      "title": "Чизбургер-пицца",
+      "price": " 395 ",
+      "imageUrl": "/assets/images/chizburger.png",
+      "sostav": "krivetka",
+      "sizeNum": 1,
+      "size": ["тонкое", "традиционное"],
+      "pizzaId": 1,
+      "pizzaSize": ["20", "26", "36"],
+      "description": "some information",
+      "isOrdered": false
+    },
+    {
+      "id": "6",
+      "title": "Сырная",
+      "price": " 450 ",
+      "imageUrl": "/assets/images/sir.png",
+      "sostav": "sir",
+      "sizeNum": 1,
+      "size": ["тонкое", "традиционное"],
+      "pizzaId": 1,
+      "pizzaSize": ["20", "26", "36"],
+      "description": "some information",
+      "isOrdered": false
+    },
+    {
+      "id": "7",
+      "title": "Креветки по-азиатски",
+      "price": " 290 ",
+      "imageUrl": "/assets/images/krivetka.png",
+      "sostav": "sir",
+      "sizeNum": 1,
+      "size": ["тонкое", "традиционное"],
+      "pizzaId": 1,
+      "pizzaSize": ["20", "26", "36"],
+      "description": "some information",
+      "isOrdered": false
+    },
+    {
+      "id": "8",
+      "title": "Креветки по-азиатски",
+      "price": " 290 ",
+      "imageUrl": "/assets/images/sirniytsipa.png",
+      "sostav": "sir",
+      "sizeNum": 1,
+      "size": ["тонкое", "традиционное"],
+      "pizzaId": 1,
+      "pizzaSize": ["20", "26", "36"],
+      "description": "some information",
+      "isOrdered": false
+    }
+  ],
+  "ordered": [
+    {
+      "id": "3",
+      "title": "Креветки по-азиатски",
+      "price": " 300 ",
+      "imageUrl": "/assets/images/krivetka.png",
+      "sostav": "sir",
+      "sizeNum": 1,
+      "size": ["тонкое", "традиционное"],
+      "pizzaId": 1,
+      "pizzaSize": ["20", "26", "36"],
+      "description": "some information",
+      "isOrdered": true
+    },
+    {
+      "id": "8",
+      "title": "Креветки по-азиатски",
+      "price": " 290 ",
+      "imageUrl": "/assets/images/sirniytsipa.png",
+      "sostav": "sir",
+      "sizeNum": 1,
+      "size": ["тонкое", "традиционное"],
+      "pizzaId": 1,
+      "pizzaSize": ["20", "26", "36"],
+      "description": "some information",
+      "isOrdered": true
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

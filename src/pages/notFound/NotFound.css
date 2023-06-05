@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap");
+
+.not-found-page {
+  max-width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.error-container {
+  width: 1230px;
+  height: 680px;
+  /* margin-top: 154px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffdf8c;
+  border-radius: 34px;
+  position: relative;
+}
+
+.title-container {
+  width: 420px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title-container h2 {
+  position: absolute;
+  left: 350px;
+  top: 135px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 200px;
+  line-height: 242px;
+  /* z-index: 99; */
+  /* identical to box height */
+
+  color: #fe5f1e;
+}
+
+.title-container p {
+  position: absolute;
+  bottom: 127;
+  left: 550px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 100px;
+  line-height: 121px;
+  /* identical to box height */
+
+  color: #fe5f1e;
+}
+
+.eslice1 {
+  width: 724px;
+  height: 724px;
+  position: absolute;
+  /* top: 5px; */
+  bottom: -362px;
+  left: 0;
+  background-image: url("/public/assets/icons/Ellipse1.png");
+  border-bottom-right-radius: 34px;
+  background-repeat: no-repeat;
+}
+
+.eslice2 {
+  width: 724px;
+  height: 724px;
+  position: absolute;
+  /* top: 5px; */
+  bottom: -438px;
+  left: 0;
+  background-image: url("/public/assets/icons/Ellipse2.png");
+  border-bottom-right-radius: 34px;
+  background-repeat: no-repeat;
+}
+
+.eslice3 {
+  width: 724px;
+  height: 724px;
+  position: absolute;
+  /* top: 5px; */
+  bottom: -504px;
+  left: 0;
+  background-image: url("/public/assets/icons/Ellipse3.png");
+  border-bottom-left-radius: 34px;
+  background-repeat: no-repeat;
+}
+
+.top-right {
+  width: 824px;
+  height: 680.5px;
+  position: absolute;
+  /* top: 5px; */
+  top: 0;
+  right: 0;
+  background-image: url("/public/assets/icons/top-right.png");
+  /* border-bottom-right-radius: 34px; */
+  background-repeat: no-repeat;
+}

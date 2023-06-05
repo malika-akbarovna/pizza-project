@@ -1,0 +1,117 @@
+.btns-filter {
+  width: 100%;
+  background: #fff;
+  /* height: 100px; */
+  /* margin: 0 auto; */
+  /* display: flex;
+  align-items: center;
+  justify-content: space-between; */
+}
+
+.hide {
+  display: none;
+}
+
+.sortirovka {
+  margin: 0 5px;
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+
+  letter-spacing: 0.015em;
+
+  color: #fe5f1e;
+}
+
+.filter-container {
+  padding: 40px 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* gap: 67px; */
+}
+
+.filter-left {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 9px;
+  /* margin-left: 67px; */
+}
+
+.filter-left button {
+  height: 46px;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  /* margin: 9px; */
+
+  align-items: center;
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+/* .button1 { */
+/* background: #282828;
+  color: #f9f9f9; */
+/* height: 46px; */
+/* border-radius: 30px; */
+
+/* font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px; */
+/* } */
+
+.button {
+  background: #f9f9f9;
+  transition: 0.5s;
+  /* height: 46px; */
+  /* border-radius: 30px; */
+  /* margin-right: 15px; */
+  /* padding: 30px; */
+  /* border: none; */
+
+  /* font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer; */
+}
+
+.button:hover {
+  background: #282828;
+  color: #f9f9f9;
+}
+
+.filter-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding-right: 38px; */
+}
+
+.sort {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.sort span {
+  color: #fe5f1e;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
