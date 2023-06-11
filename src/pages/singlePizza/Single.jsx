@@ -1,31 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { Wrapper } from "../../components";
-import { Link, useParams } from "react-router-dom";
-import { fetchItems } from "../../redux/thunk";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { fetchItem, fetchItems } from "../../redux/thunk";
 import { useDispatch, useSelector } from "react-redux";
+import { db } from "../../firebase-config";
+import { doc } from "firebase/firestore";
 import "./Single.css";
 
 export const Single = () => {
   const { single } = useSelector((state) => state);
-
   let { id } = useParams();
   const dispatch = useDispatch();
-
-  console.log(single);
+  const navigate = useNavigate();
+  const docRef = doc(db, "allPizza", id);
 
   useEffect(() => {
-    dispatch(
-      fetchItems(`http://localhost:3030/allPizza/${id}`, `SAVE_SINGLE_PIZZA`)
-    );
+    dispatch(fetchItem(docRef, `SAVE_SINGLE_PIZZA`));
   }, []);
 
   return (
     <Wrapper>
-      {/* {single.map((item) => {
-        return (
-          
-        )
-      })} */}
+     
       <div className="single-page">
         <nav className="header">
           <div className="header-container container">
@@ -59,17 +54,15 @@ export const Single = () => {
         </div>
       </nav>
       <footer className="footer-elements containerr">
-        <button className="go-home"> Вернуться назад</button>
-        <button className="pay">Оплатить сейчас</button>
+        <button className="go-home" onClick={() => navigate("/home")}>
+          {" "}
+          Вернуться назад
+        </button>
+        <button className="pay" onClick={() => navigate("/oplata")}>
+          Оплатить сейчас
+        </button>
       </footer>
-      {/* <div className=" main-section"> */}
-      {/* <nav className="page-title containerr">
-          <h2>Korzina</h2>
-          <Link className="clear-all" to="/pustoy">
-            clear basket
-          </Link>
-        </nav> */}
-      {/* </div> */}
+      
     </Wrapper>
   );
 };

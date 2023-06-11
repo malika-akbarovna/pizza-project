@@ -4,18 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchItems } from "../../redux/thunk";
 import { addToOrder } from "./helpOrder";
 import { useNavigate } from "react-router-dom";
-// import { showInfo } from "./showInfo";
 import { Single } from "../singlePizza";
-
 import { db } from "../../firebase-config";
-import {
-  collection,
-  getDocs,
-  doc,
-  addDoc,
-  deleteDoc,
-  updateDoc,
-} from "firebase/firestore";
+import { collection } from "firebase/firestore";
 
 import "./Home.css";
 
@@ -27,32 +18,20 @@ export const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // const getMovies = async () => {
-  //   const data = await getDocs(getPizzaRef);
-  //   const pizzas = data.docs.map((pizza) => {
-  //     const newPizza = {
-  //       ...pizza.data(),
-  //       id: pizza.id,
-  //     };
-  //     return newPizza;
-  //   });
-  //   setMovies(pizzas);
-  // };
-  // console.log(movies);
+  const dec = () => {
+    ordered.map((pizzas) => {
+      return pizzas.id;
+    });
+  };
 
   const showInfo = (item) => {
     navigate(`/single/${item.id}`);
   };
-  console.log(pizzaList);
 
   useEffect(() => {
     dispatch(fetchItems(getPizzaRef, `SAVE_PIZZA`));
+    dispatch(fetchItems(getOrderedRef, `SAVE_ORDER`));
   }, []);
-
-  // useEffect(() => {
-  //   getMovies();
-  //   dispatch(fetchItems(`http://localhost:3030/allPizza`, `SAVE_PIZZA`));
-  // }, []);
 
   return (
     <div className="homeContainer">
@@ -61,7 +40,9 @@ export const Home = () => {
         <Filter />
         <p className="pizzas container">Все пиццы</p>
         <CardContainer
-          onClickItem2={(item) => dispatch(addToOrder(item, getOrderedRef))}
+          onClickItem2={(item) =>
+            dispatch(addToOrder(item, getOrderedRef, getPizzaRef, ordered, dec))
+          }
           onClickItem={showInfo}
           items={pizzaList}
         />

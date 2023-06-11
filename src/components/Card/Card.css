@@ -3,7 +3,6 @@
   padding: 1.6rem 0.5rem;
   max-height: 28.75;
   background: #ffffff;
-  /* border: 1px solid #f3f3f3; */
   border-radius: 40px;
   margin: 0 auto;
   display: flex;
@@ -12,7 +11,6 @@
   flex-direction: column;
 
   position: relative;
-  /* margin-left: 50px; */
 }
 
 .cardTitle {
@@ -37,24 +35,6 @@
   align-items: center;
   justify-content: space-evenly;
 }
-
-/* .tonkoye {
-  width: 131.88px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-family: "Proxima Nova";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-
-  background: #ffffff;
-  /* box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04); 
-  border-radius: 5px;
-  cursor: pointer;
-} */
 
 .tradit {
   width: 131.88px;
@@ -87,21 +67,6 @@
   justify-content: space-evenly;
 }
 
-/* .sizeed {
-  width: 86.01px;
-  height: 32px;
-
-  font-family: "Proxima Nova";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-
-  border: none;
-  background: #ffffff;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
-  border-radius: 5px;
-  cursor: pointer;
-} */
 .sizee {
   width: 86.01px;
   height: 32px;
@@ -124,7 +89,6 @@
 .card-bottom {
   width: 100%;
   height: 75px;
-  /* background: blue; */
   margin: 7px 0;
   display: flex;
   align-items: center;
@@ -157,6 +121,11 @@
   font-weight: 700;
   font-size: 16px;
 
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+
   background: #ffffff;
   border: 1px solid #eb5a1e;
   border-radius: 30px;
@@ -164,7 +133,7 @@
   cursor: pointer;
 }
 
-.btn-order {
+.btn-add:hover {
   width: 155px;
   height: 40px;
 
@@ -178,4 +147,34 @@
   border-radius: 30px;
   color: #fff;
   cursor: pointer;
+}
+.btn-add:hover .count-item {
+  background-color: #fff;
+  color: #eb5a1e;
+}
+
+.btn-add span {
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: calc(50%-7px);
+  left: 15px;
+}
+
+.count-item {
+  width: 20px;
+  height: 20px;
+
+  position: absolute;
+  top: calc(50%-10px);
+  right: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  border-radius: 50%;
+  background-color: #eb5a1e;
+  color: #fff;
 }

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import "./Card.css";
 import { useNavigate } from "react-router-dom";
+import { FaPlus } from "react-icons/fa";
+import "./Card.css";
 
 export const Card = ({ item, onClickItem2, onClickItem }) => {
-  const { title, imageUrl, price, size, sizeNum, pizzaSize } = item;
+  const { title, imageUrl, price, size, sizeNum, pizzaSize, count } = item;
   const [piizaType, setPizzaType] = useState(size);
   const [piizaSiza, setPiizaSiza] = useState(pizzaSize);
 
@@ -34,19 +35,18 @@ export const Card = ({ item, onClickItem2, onClickItem }) => {
           {piizaSiza.map((pizsiz) => {
             return <button className="sizee">{pizsiz} см</button>;
           })}
-          {/* <button className="sizee">26 см.</button>
-          <button className="sizee">30 см.</button>
-          <button className="sizee">40 см.</button> */}
         </div>
       </div>
       <div className="card-bottom">
         <p className="summa">{price} ₽</p>
         <button
-          // class item.isOrdered "btn-add"
-          className={item.isOrdered ? "btn-order" : "btn-add"}
+          className="btn-add"
           onClick={() => onClickItem2(item, dispatch)}
         >
-          {item.isOrdered ? "Добавлено " : "+  Добавить "}{" "}
+          <span>
+            <FaPlus />
+          </span>
+          Добавить <div className="count-item">{count}</div>
         </button>
       </div>
     </div>

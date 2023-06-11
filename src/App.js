@@ -1,13 +1,19 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Home, Korzinka, NotFound, Single } from "./pages";
+import { Home, Korzinka, Login, NotFound, Oplata, Single } from "./pages";
+// import { addPizza } from "./pages";
 import { Pustoy } from "./pages/pustaya/Pustoy";
-
+// import { addPizza } from "./pages/addNewPizza/addPizza";
+import { AddPizza } from "./pages/addNewPizza/AddPizza";
 import "./App.css";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
+      element: <Login />,
+    },
+    {
+      path: "/home",
       element: <Home />,
     },
     {
@@ -17,6 +23,14 @@ function App() {
     {
       path: "/pustoy",
       element: <Pustoy />,
+    },
+    {
+      path: "/oplata",
+      element: <Oplata />,
+    },
+    {
+      path: "/new",
+      element: <AddPizza />,
     },
     {
       path: "/single/:id",

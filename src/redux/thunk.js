@@ -1,4 +1,4 @@
-import { getDocs, addDoc, deleteDoc, doc } from "firebase/firestore";
+import { getDocs, getDoc } from "firebase/firestore";
 import { db } from "../firebase-config";
 
 export const fetchItems = (getPizzaRef, ACTION_NAME) => async (dispatch) => {
@@ -17,6 +17,14 @@ export const fetchItems = (getPizzaRef, ACTION_NAME) => async (dispatch) => {
   }
 };
 
+export const fetchItem = (getPizzaRef, ACTION_NAME) => async (dispatch) => {
+  try {
+    const docSnap = await getDoc(getPizzaRef);
+    dispatch({ type: ACTION_NAME, payload: docSnap.data() });
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 // export const fetchItems = (url, ACTION_NAME) => async (dispatch) => {
 //   try {

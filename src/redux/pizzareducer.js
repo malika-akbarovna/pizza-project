@@ -13,6 +13,16 @@ const addToOrder = (state, item) => {
   };
 };
 
+const deleteOrder = (state, item) => {
+  // console.log(state.ordered);
+  return {
+    ...state,
+    ordered: state.ordered.filter((items) => {
+      return items !== item;
+    }),
+  };
+};
+
 const savepizzaList = (state, pizzaList = []) => {
   return {
     ...state,
@@ -35,7 +45,7 @@ const sneakersReducer = (state = initialState, action) => {
       return savepizza(state, action.payload);
     case `SAVE_ORDER`:
       return addToOrder(state, action.payload);
-      case `SAVE_DELETE`:
+    case `SAVE_DELETE`:
       return deleteOrder(state, action.payload);
     default:
       return state;

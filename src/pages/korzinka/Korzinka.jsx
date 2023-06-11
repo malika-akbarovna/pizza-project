@@ -20,9 +20,12 @@ import "./Korzinka.css";
 
 export const Korzinka = () => {
   const { pizzaList, ordered } = useSelector((state) => state);
-  const [allprice, setAllPrice] = useState([]);
-
+  const dispatch = useDispatch();
+  const getPizzaRef = collection(db, "allPizza");
   const getOrderedRef = collection(db, "ordered");
+  const [allprice, setAllPrice] = useState(pizzaList);
+
+  // console.log(ordered);
 
   // const allsumm = () => {
   //   ordered.map((item) => {
@@ -32,16 +35,16 @@ export const Korzinka = () => {
   // };
   // setAllPrice(allsumm);
 
-  // console.log(allprice);
+  // console.log(pizzaLis);
 
   // const [orderedItem, setOrderedItem] = useState(
   //   ordered.filter((item) => {
   //     return item.isOreder === true;
   //   })
   // );
-  const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(fetchItems(getPizzaRef, `SAVE_PIZZA`));
     dispatch(fetchItems(getOrderedRef, `SAVE_ORDER`));
   }, []);
 
@@ -50,6 +53,9 @@ export const Korzinka = () => {
   // useEffect(() => {
   //   dispatch(fetchItems(`http://localhost:3030/ordered`, `SAVE_ORDER`));
   // }, []);
+
+  // (item) =>
+  // dispatch(addToOrder(item, getOrderedRef, getPizzaRef))
 
   return (
     <Wrapper>
@@ -93,7 +99,12 @@ export const Korzinka = () => {
           {ordered.map((item) => {
             // console.log(item);
             return (
-              <OrderItem key={item.id} item={item} onClickItem2={addToOrder} />
+              <OrderItem
+                key={item.id}
+                item={item}
+                onClickItem2={() => {}}
+                allPizza={allprice}
+              />
             );
           })}
 
@@ -107,7 +118,7 @@ export const Korzinka = () => {
               </p>
             </div>
             <div className="footer-bottom">
-              <Link to="/" className="go-back btn ">
+              <Link to="/home" className="go-back btn ">
                 {" "}
                 <span>
                   <img src="/assets/icons/prev.png" alt="" />

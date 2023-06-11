@@ -48,7 +48,6 @@
   font-weight: 300;
   font-size: 100px;
   line-height: 121px;
-  /* identical to box height */
 
   color: #fe5f1e;
 }
@@ -57,7 +56,6 @@
   width: 724px;
   height: 724px;
   position: absolute;
-  /* top: 5px; */
   bottom: -362px;
   left: 0;
   background-image: url("/public/assets/icons/Ellipse1.png");
@@ -69,7 +67,6 @@
   width: 724px;
   height: 724px;
   position: absolute;
-  /* top: 5px; */
   bottom: -438px;
   left: 0;
   background-image: url("/public/assets/icons/Ellipse2.png");
@@ -81,7 +78,6 @@
   width: 724px;
   height: 724px;
   position: absolute;
-  /* top: 5px; */
   bottom: -504px;
   left: 0;
   background-image: url("/public/assets/icons/Ellipse3.png");
@@ -93,10 +89,8 @@
   width: 824px;
   height: 680.5px;
   position: absolute;
-  /* top: 5px; */
   top: 0;
   right: 0;
   background-image: url("/public/assets/icons/top-right.png");
-  /* border-bottom-right-radius: 34px; */
   background-repeat: no-repeat;
 }

@@ -1,0 +1,91 @@
+.main-center_div {
+  height: 744px;
+  width: 1133px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+  background: #fff;
+}
+
+.element-center {
+  max-width: 365px;
+  height: 395px;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.center_div {
+  height: 470px;
+  width: 531px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 20px;
+  background: #eae0c6;
+}
+
+.top-section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 28px;
+}
+
+.section-center {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+
+  color: #fefcfc;
+}
+
+.section-center input {
+  width: 100%;
+  height: 40px;
+
+  background: #eb5a1e;
+  border: none;
+  border-radius: 6px;
+
+  color: #fff;
+}
+
+.section-center label {
+  margin: 9px 0 5px 0;
+}
+
+input::placeholder {
+  color: #c4c4c4;
+  padding-left: 15px;
+}
+
+.checkout {
+  width: 100%;
+  height: 41px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+
+  color: #fefcfc;
+
+  background: #eb5a1e;
+  border-radius: 12px;
+}

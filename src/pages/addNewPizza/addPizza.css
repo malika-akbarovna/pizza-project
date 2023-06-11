@@ -1,0 +1,13 @@
+.add-pizza {
+  width: 100%;
+  height: 40px;
+  border-radius: 15px;
+  border: none;
+  background: #eb5a1e;
+  color: #fff;
+  cursor: pointer;
+}
+
+.top-section h2 {
+  color: #fff;
+}
