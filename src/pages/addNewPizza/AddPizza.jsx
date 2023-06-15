@@ -1,40 +1,44 @@
 import React, { useState } from "react";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../firebase-config";
-import "./addPizza.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { fetchItems } from "../../redux/thunk";
+import "./addPizza.css";
 
 export const AddPizza = () => {
   const [pizzaName, setPizzaName] = useState("");
   const [pizzaUrl, setPizzaUrl] = useState("");
   const [price, setPrice] = useState();
-  const getPizzaRef = collection(db, "allPizza");
-
+  const [category, setCategory] = useState("");
+  const [i, setI] = useState(11);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const getPizzaRef = collection(db, "allPizza");
 
   const addPizza = async () => {
     const newPizza = {
       title: pizzaName,
       count: 0,
+      id: i,
+      category: category,
       isOrdered: false,
       description:
         "lacus ex non lobortis, in orci maximus maximus non Nunc ex dignissim, felis, fringilla amet, nulla, nec sollicitudin. ipsum tortor. gravida ex amet, hendrerit  nec efficitur. elementum nec lorem. elit quis nibh id Sed Donec Nunc in scelerisque ac porta turpis nulla, turpis est. Donec id non lorem. diam fringilla dui. ",
       imageUrl: pizzaUrl,
       price: price,
-      pizzaId: 1,
+      pizzaId: 3,
       pizzaSize: [20, 26, 36],
-      sizeNum: 1,
+      sizeNum: 4,
       size: ["тонкое", "традиционное"],
     };
 
+    setI((prevV) => prevV + 1);
     setPizzaName("");
     setPizzaUrl("");
     setPrice();
     await addDoc(getPizzaRef, newPizza);
-    navigate("/home");
+    navigate("/");
     dispatch(fetchItems(getPizzaRef, `SAVE_PIZZA`));
   };
 
@@ -76,6 +80,15 @@ export const AddPizza = () => {
                 onChange={({ target }) => setPrice(target.value)}
                 type="text"
                 placeholder="price"
+              />
+            </div>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <label>Enter pizza's category</label>
+              <input
+                value={category}
+                onChange={({ target }) => setCategory(target.value)}
+                type="text"
+                placeholder="Мясные, Вегетарианские, Грибные, Острые"
               />
             </div>
           </section>

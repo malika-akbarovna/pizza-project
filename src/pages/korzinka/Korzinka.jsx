@@ -5,16 +5,8 @@ import { BsFillTrashFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchItems, order } from "../../redux/thunk";
-import { addToOrder } from "../home/helpOrder";
 import { db } from "../../firebase-config";
-import {
-  collection,
-  getDocs,
-  doc,
-  addDoc,
-  deleteDoc,
-  updateDoc,
-} from "firebase/firestore";
+import { collection } from "firebase/firestore";
 
 import "./Korzinka.css";
 
@@ -23,39 +15,12 @@ export const Korzinka = () => {
   const dispatch = useDispatch();
   const getPizzaRef = collection(db, "allPizza");
   const getOrderedRef = collection(db, "ordered");
-  const [allprice, setAllPrice] = useState(pizzaList);
-
-  // console.log(ordered);
-
-  // const allsumm = () => {
-  //   ordered.map((item) => {
-  //     const price = item.price;
-  //     return price;
-  //   });
-  // };
-  // setAllPrice(allsumm);
-
-  // console.log(pizzaLis);
-
-  // const [orderedItem, setOrderedItem] = useState(
-  //   ordered.filter((item) => {
-  //     return item.isOreder === true;
-  //   })
-  // );
+  const [allprice, setAllPrice] = useState(900);
 
   useEffect(() => {
     dispatch(fetchItems(getPizzaRef, `SAVE_PIZZA`));
     dispatch(fetchItems(getOrderedRef, `SAVE_ORDER`));
   }, []);
-
-  // console.log(orderedItem);
-
-  // useEffect(() => {
-  //   dispatch(fetchItems(`http://localhost:3030/ordered`, `SAVE_ORDER`));
-  // }, []);
-
-  // (item) =>
-  // dispatch(addToOrder(item, getOrderedRef, getPizzaRef))
 
   return (
     <Wrapper>
@@ -97,7 +62,6 @@ export const Korzinka = () => {
             </nav>
           </div>
           {ordered.map((item) => {
-            // console.log(item);
             return (
               <OrderItem
                 key={item.id}
@@ -118,14 +82,14 @@ export const Korzinka = () => {
               </p>
             </div>
             <div className="footer-bottom">
-              <Link to="/home" className="go-back btn ">
+              <Link to="/" className="go-back btn ">
                 {" "}
                 <span>
                   <img src="/assets/icons/prev.png" alt="" />
                 </span>{" "}
                 Go back
               </Link>
-              <Link to="/" className="btn pay-now">
+              <Link to="/oplata" className="btn pay-now">
                 Pay now
               </Link>
             </div>

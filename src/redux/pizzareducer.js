@@ -1,12 +1,12 @@
 const initialState = {
   isLoading: false,
   pizzaList: [],
+  filter: [],
   single: {},
   ordered: [],
 };
 
 const addToOrder = (state, item) => {
-  // console.log(state.ordered);
   return {
     ...state,
     ordered: item,
@@ -14,7 +14,6 @@ const addToOrder = (state, item) => {
 };
 
 const deleteOrder = (state, item) => {
-  // console.log(state.ordered);
   return {
     ...state,
     ordered: state.ordered.filter((items) => {
@@ -30,6 +29,13 @@ const savepizzaList = (state, pizzaList = []) => {
   };
 };
 
+const savepizzaFilt = (state, pizzaList = []) => {
+  return {
+    ...state,
+    filter: pizzaList,
+  };
+};
+
 const savepizza = (state, pizza = {}) => {
   return {
     ...state,
@@ -41,6 +47,8 @@ const sneakersReducer = (state = initialState, action) => {
   switch (action.type) {
     case `SAVE_PIZZA`:
       return savepizzaList(state, action.payload);
+    case `SAVE_FILTER_PIZZA`:
+      return savepizzaFilt(state, action.payload);
     case `SAVE_SINGLE_PIZZA`:
       return savepizza(state, action.payload);
     case `SAVE_ORDER`:

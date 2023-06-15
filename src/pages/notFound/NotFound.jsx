@@ -1,5 +1,6 @@
 import React from "react";
 import { Wrapper } from "../../components";
+import { Link } from "react-router-dom";
 import "./NotFound.css";
 
 export const NotFound = () => {
@@ -11,6 +12,7 @@ export const NotFound = () => {
           <div className="title-container">
             <h2>404</h2>
             <p>Error</p>
+            <Link to={"/"}>go home</Link>
           </div>
           <div className="eslice">
             <div className="eslice1"></div>

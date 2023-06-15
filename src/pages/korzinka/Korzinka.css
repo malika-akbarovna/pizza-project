@@ -12,7 +12,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* padding: 94px 0; */
 }
 .page-title::after {
   content: "";
@@ -30,7 +29,6 @@
   font-weight: 700;
   font-size: 32px;
   line-height: 39px;
-  /* identical to box height */
 
   letter-spacing: 0.01em;
 
@@ -76,7 +74,6 @@
   font-weight: 700;
   font-size: 22px;
   line-height: 27px;
-  /* identical to box height */
 
   letter-spacing: 0.01em;
   color: #000000;
@@ -88,7 +85,6 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
-  /* identical to box height */
 
   letter-spacing: 0.01em;
   color: #8d8d8d;
@@ -112,7 +108,6 @@
   font-weight: 700;
   font-size: 22px;
   line-height: 27px;
-  /* identical to box height */
 
   letter-spacing: 0.01em;
 
@@ -132,7 +127,6 @@
   font-weight: 400;
   font-size: 22px;
   line-height: 27px;
-  /* identical to box height */
 
   letter-spacing: 0.01em;
 
@@ -145,7 +139,6 @@
   font-weight: 800;
   font-size: 22px;
   line-height: 27px;
-  /* identical to box height */
 
   letter-spacing: 0.01em;
 
@@ -158,7 +151,6 @@
   font-weight: 800;
   font-size: 22px;
   line-height: 27px;
-  /* identical to box height */
 
   letter-spacing: 0.01em;
 
@@ -200,136 +192,3 @@
   border-radius: 30px;
   color: #fff;
 }
-/* .body {
-  width: 100%;
-  height: 100vh;
-  background: #fff;
-  margin: 0 auto;
-}
-
-.center1 {
-  width: 100%;
-  background: #fff;
-  display: flex;
-}
-.pizzaa {
-  width: 130px;
-  height: 39px;
-  padding: 131px 275px;
-  padding-right: 0;
-  padding-bottom: 0;
-
-  display: flex;
-
-  font-family: "Proxima Nova";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 39px;
-
-  letter-spacing: 0.01em;
-
-  color: #000000;
-}
-
-.basket,
-.trash {
-  padding-right: 10px;
-}
-
-.clear {
-  width: 250px;
-  height: 21px;
-  padding-top: 131px;
-  padding-left: 940px;
-  padding-right: 0;
-  padding-bottom: 0;
-  display: flex;
-  align-items: center;
-
-  font-family: "Proxima Nova";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  /* line-height: 19px; 
-
-  color: #b6b6b6;
-}
-
-.elements {
-  width: 1111px;
-  height: 397px;
-  /* border: 1px solid red; 
-  margin-top: 145px;
-  margin-left: 270px;
-}
-
-.card-korzinka {
-  width: 811px;
-  height: 111px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.card-left {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.image {
-  width: 80px;
-  height: 80px;
-}
-
-.pizza-title {
-  width: 280px;
-  height: 27px;
-
-  font-family: "Proxima Nova";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 22px;
-  line-height: 27px;
-
-  letter-spacing: 0.01em;
-
-  color: #000000;
-}
-
-.pizza-text {
-  width: 280px;
-  height: 22px;
-  left: 445px;
-  top: 419px;
-
-  font-family: "Proxima Nova";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-
-  letter-spacing: 0.01em;
-
-  color: #8d8d8d;
-}
-
-.card-right {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
- .change {
-  display: flex;
-  align-items: center;
-  padding-right: 120px;
-  font-family: "Proxima Nova";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-}
-
-.delete-item {
-  margin-left: 100px;
-} */

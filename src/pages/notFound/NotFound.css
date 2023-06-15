@@ -9,7 +9,6 @@
 .error-container {
   width: 1230px;
   height: 680px;
-  /* margin-top: 154px; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,8 +32,6 @@
   font-weight: 300;
   font-size: 200px;
   line-height: 242px;
-  /* z-index: 99; */
-  /* identical to box height */
 
   color: #fe5f1e;
 }

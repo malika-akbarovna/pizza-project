@@ -1,47 +1,91 @@
-// import { deleteOrder, orderSneakers, postItem } from "../../redux/thunk";
-import { useState } from "react";
-import { useSelector } from "react-redux";
 import { addDoc, deleteDoc, doc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase-config";
 import { fetchItems } from "../../redux/thunk";
 
-export const addCount = (item, getOrderedRef) => async () => {
-  // console.log(item);
-  // const updateCount = {
-  //   ...item,
-  //   count: item.count + 1,
-  // };
-  // const editCount = async () => {
-  //   const pizzadoc = doc(db, "ordered", item.id);
-  //   await updateDoc(pizzadoc, updateCount);
-  // };
+export const addCount = (item, getOrderedRef, pizz, dispatch) => async () => {
+  let idd = pizz.filter((items) => {
+    return items.title === item.title;
+  });
+
+  let obj = idd.find((items) => {
+    return (items.title = item.title);
+  });
+
+  const updateCount = {
+    ...item,
+    count: item.count + 1,
+  };
+  const editCount = async () => {
+    const pizzadoc = doc(db, "ordered", item.id);
+    await updateDoc(pizzadoc, updateCount);
+  };
+
+  const editpizzaCount = async () => {
+    const pizzadoc = doc(db, "allPizza", obj.id);
+    await updateDoc(pizzadoc, updateCount);
+  };
+
+  editCount();
+  editpizzaCount();
+  dispatch(fetchItems(getOrderedRef, `SAVE_ORDER`));
+};
+
+export const decCount = (item, getOrderedRef, pizz, dispatch) => async () => {
+  let idd = pizz.filter((items) => {
+    return items.title === item.title;
+  });
+
+  let obj = idd.find((items) => {
+    return (items.title = item.title);
+  });
+
+  if (item.count === 0) {
+    const updateCount = {
+      ...item,
+      count: item.count,
+    };
+
+    const editCount = async () => {
+      const pizzadoc = doc(db, "ordered", item.id);
+      await updateDoc(pizzadoc, updateCount);
+    };
+    editCount();
+  } else {
+    const updateCount = {
+      ...item,
+      count: item.count - 1,
+    };
+
+    const editCount = async () => {
+      const pizzadoc = doc(db, "ordered", item.id);
+      await updateDoc(pizzadoc, updateCount);
+    };
+    const editAllPizzaCount = async () => {
+      const pizzadoc = doc(db, "allPizza", obj.id);
+      await updateDoc(pizzadoc, updateCount);
+    };
+    editCount();
+    editAllPizzaCount();
+  }
+
+  dispatch(fetchItems(getOrderedRef, `SAVE_ORDER`));
   return item.id;
-  // editCount();
 };
 
 export const addToOrder =
   (pizzaObj, getOrderedRef, getPizzaRef, ordered) => async (dispatch) => {
-    // let id = ordered;
-    // .map((item) => {
-    //   return item;
-    // });
-    // console.log(id);
-    // const [counter, setCount] = useState(0);
-    //     const posts = querySnapshot.docs.map((d) => ({ id: d.id, ...d.data() }));
-    // setFilteredPosts(posts);
+    let idd = ordered?.filter((item) => {
+      return item.title === pizzaObj.title;
+    });
+    let obj = idd.find((item) => {
+      return (item.title = pizzaObj.title);
+    });
+
     try {
-      // let counter = pizzaObj.count + 1;
-      // const clickedPizza = {
-      //   ...pizzaObj,
-      //   isOrdered: !pizzaObj.isOrdered,
-      //   // count: counter + 1,
-      // };
       const clickedPizza = {
         ...pizzaObj,
-        isOrdered: !pizzaObj.isOrdered,
+        isOrdered: true,
         count: pizzaObj.count + 1,
-
-        // count: counter + 1,
       };
 
       const updateCount = {
@@ -55,87 +99,63 @@ export const addToOrder =
       };
 
       const editpizzaCount = async () => {
-        const pizzadoc = doc(db, "allPizza", pizzaObj.id);
+        const pizzadoc = doc(db, "allPizza", pizzaObj?.id);
         await updateDoc(pizzadoc, updateCount);
       };
 
       const editCount = async () => {
-        const pizzadoc = doc(db, "ordered", pizzaObj.id);
+        const pizzadoc = doc(db, "ordered", obj?.id);
         await updateDoc(pizzadoc, updateCount);
       };
-      const deleditpizza = async () => {
-        const pizzadoc = doc(db, "ordered", pizzaObj.id);
-        await updateDoc(pizzadoc, clickedPizza);
-      };
-
-      // let res;
-      // if (pizzaObj.isOrdered) {
-      //   editpizza();
-      //   const pizzadoc = doc(db, "ordered", pizzaObj.id);
-      //   await deleteDoc(pizzadoc);
-      //   deleditpizza();
-      //   fetchItems();
-      //   dispatch(fetchItems(getOrderedRef, `SAVE_DELETE`));
-      // } else {
-      //   editpizza();
-      //   await addDoc(getOrderedRef, clickedPizza);
-      //   fetchItems();
-      // }
-
-      // const updateBoolCount = async () => {
-      //   const pizzadoc = doc(db, "allPizza", pizzaObj.id);
-      //   await updateDoc(pizzadoc, clickedPizza);
-      //   await updateDoc(pizzadoc, updateCount);
-      // };
 
       if (pizzaObj.count === 0) {
-        // updateBoolCount();
-        // editpizza(clickedPizza);
-        // editpizzaCount();
         editpizza();
         await addDoc(getOrderedRef, clickedPizza);
+
+        dispatch(fetchItems(getPizzaRef, `SAVE_ORDER`));
+        dispatch(fetchItems(getPizzaRef, `SAVE_FILTER_PIZZA`));
         dispatch(fetchItems(getPizzaRef, `SAVE_PIZZA`));
-        // editCount(update);
-        // fetchItems();
-        // setCount(counter + 1);
       } else if (pizzaObj.count === 1) {
         editpizzaCount();
-        // addCount()
-        // deleditpizza();
-        // editCount();
-        // console.log(id);
         dispatch(fetchItems(getPizzaRef, `SAVE_PIZZA`));
-
-        // editpizza(clickedPizza);
-
-        // console.log(pizzaObj.count);
+        dispatch(fetchItems(getPizzaRef, `SAVE_FILTER_PIZZA`));
       } else if (pizzaObj.count > 1) {
         editpizzaCount();
+        editCount();
         dispatch(fetchItems(getPizzaRef, `SAVE_PIZZA`));
-        addCount();
-        // editCount();
-        // deleditpizza();
-        // console.log(addCount);
-        console.log(pizzaObj.count);
+        dispatch(fetchItems(getPizzaRef, `SAVE_FILTER_PIZZA`));
       } else {
         window.alert("error comand");
-        // setCount(counter + 1);
-        // const pizzadoc = doc(db, "ordered", pizzaObj.id);
-        // await deleteDoc(pizzadoc);
-        // deleditpizza();
-        // fetchItems();
-        // dispatch(fetchItems(getOrderedRef, `SAVE_DELETE`));
       }
-
-      // if (res) {
-      //   window.alert("Successfully done");
-      // }
     } catch (error) {
       console.error(error);
     }
   };
 
-export const deletePizza = (item, getOrderedRef) => async (dispatch) => {
+export const deletePizza = (item, getOrderedRef, pizz) => async (dispatch) => {
+  let idd = pizz.filter((items) => {
+    return items.title === item.title;
+  });
+
+  let obj = idd.find((items) => {
+    return (items.title = item.title);
+  });
+
+  const clickedPizza = {
+    ...item,
+    isOrdered: false,
+    count: 0,
+    pizzaId: 3,
+    sizeNum: 4,
+  };
+
+  const editpizza = async () => {
+    const pizzadoc = doc(db, "allPizza", obj.id);
+    await updateDoc(pizzadoc, clickedPizza);
+  };
+
+  editpizza();
+
   const pizzadoc = doc(db, "ordered", item.id);
   await deleteDoc(pizzadoc);
   dispatch(fetchItems(getOrderedRef, `SAVE_DELETE`));

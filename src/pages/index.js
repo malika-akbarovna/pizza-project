@@ -4,5 +4,6 @@ export * from "./pustaya";
 export * from "./notFound";
 export * from "./singlePizza";
 export * from "./Pay";
-export * from "./logIn";
+export * from "./singUp";
+export * from "./singIn";
 export * from "./addNewPizza";

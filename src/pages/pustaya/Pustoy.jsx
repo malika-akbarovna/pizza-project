@@ -1,10 +1,11 @@
 import React from "react";
 import { Wrapper } from "../../components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import "./Pustoy.css";
 
 export const Pustoy = () => {
+  const navigate = useNavigate();
   return (
     <Wrapper>
       <div className="korzinka">
@@ -37,7 +38,14 @@ export const Pustoy = () => {
             <p> заказать пиццу, перейди на главную страницу.</p>
 
             <img src="/assets/images/shopping.png" alt="" />
-            <button className="btn-go-back"> go back</button>
+            <button
+              className="btn-go-back"
+              navigate={"/"}
+              style={{ cursor: "pointer" }}
+            >
+              {" "}
+              go back
+            </button>
           </div>
         </div>
       </div>

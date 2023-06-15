@@ -6,7 +6,7 @@ export const Oplata = () => {
   const navigate = useNavigate();
   const click = () => {
     window.alert("thanks for your order");
-    navigate("/home");
+    navigate("/");
   };
   return (
     <div className="main-center_div">

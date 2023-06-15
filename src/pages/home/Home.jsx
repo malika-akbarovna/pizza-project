@@ -1,28 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { Card, CardContainer, Filter, Header, Wrapper } from "../../components";
+import { CardContainer, Filter, Header, Wrapper } from "../../components";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchItems } from "../../redux/thunk";
 import { addToOrder } from "./helpOrder";
 import { useNavigate } from "react-router-dom";
-import { Single } from "../singlePizza";
 import { db } from "../../firebase-config";
 import { collection } from "firebase/firestore";
 
 import "./Home.css";
 
 export const Home = () => {
-  const { pizzaList, ordered } = useSelector((state) => state);
+  const { pizzaList, ordered, filter } = useSelector((state) => state);
+  const [pizz, setPizz] = useState(pizzaList);
   const getPizzaRef = collection(db, "allPizza");
   const getOrderedRef = collection(db, "ordered");
 
+  localStorage.setItem("isLogin", true);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const dec = () => {
-    ordered.map((pizzas) => {
-      return pizzas.id;
-    });
-  };
 
   const showInfo = (item) => {
     navigate(`/single/${item.id}`);
@@ -41,10 +37,10 @@ export const Home = () => {
         <p className="pizzas container">Все пиццы</p>
         <CardContainer
           onClickItem2={(item) =>
-            dispatch(addToOrder(item, getOrderedRef, getPizzaRef, ordered, dec))
+            dispatch(addToOrder(item, getOrderedRef, getPizzaRef, ordered))
           }
           onClickItem={showInfo}
-          items={pizzaList}
+          items={filter}
         />
       </Wrapper>
     </div>

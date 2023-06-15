@@ -6,12 +6,12 @@ import { useSelector } from "react-redux";
 import "./Header.css";
 
 export const Header = () => {
-  const { pizzaList, ordered } = useSelector((state) => state);
+  const { ordered } = useSelector((state) => state);
   const navigate = useNavigate();
   return (
     <nav className="header">
       <div className="header-container container">
-        <div className="header-logo" navigate="/home">
+        <div className="header-logo" navigate="/">
           <img
             className="logo"
             src="/assets/icons/pizza-logo.png"

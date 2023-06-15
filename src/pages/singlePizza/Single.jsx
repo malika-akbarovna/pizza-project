@@ -20,7 +20,6 @@ export const Single = () => {
 
   return (
     <Wrapper>
-     
       <div className="single-page">
         <nav className="header">
           <div className="header-container container">
@@ -54,7 +53,7 @@ export const Single = () => {
         </div>
       </nav>
       <footer className="footer-elements containerr">
-        <button className="go-home" onClick={() => navigate("/home")}>
+        <button className="go-home" onClick={() => navigate("/")}>
           {" "}
           Вернуться назад
         </button>
@@ -62,7 +61,6 @@ export const Single = () => {
           Оплатить сейчас
         </button>
       </footer>
-      
     </Wrapper>
   );
 };
